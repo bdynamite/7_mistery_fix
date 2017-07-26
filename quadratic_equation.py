@@ -14,14 +14,14 @@ def get_params():
     return params
 
 
-def get_roots(a, b, c):
-    discriminant = b ** 2 - 4 * a * c
+def get_roots(coef_1, coef_2, coef_3):
+    discriminant = coef_2 ** 2 - 4 * coef_1 * coef_3
     if discriminant < 0:
         return None, None
     elif discriminant == 0:
-        return (-b) / (2 * a), None
+        return (-coef_2) / (2 * coef_1), None
     else:
-        return (-b - sqrt(discriminant)) / (2 * a), (-b + sqrt(discriminant)) / (2 * a)
+        return (-coef_2 - sqrt(discriminant)) / (2 * coef_1), (-coef_2 + sqrt(discriminant)) / (2 * coef_1)
 
 
 if __name__ == '__main__':
