@@ -4,14 +4,18 @@ from math import sqrt
 def get_params():
     params = input('Enter the coefficients of the quadratic equation: ').split()
     try:
-        params = list(map(int, params))
+        params = list(map(float, params))
     except ValueError:
-        print('Coefficients must be integer')
-        exit()
+        print_error('Coefficients must be float')
+        return None
     if len(params) != 3:
-        print('There should be 3 coefficients ')
-        exit()
+        print_error('There should be 3 coefficients ')
+        return None
     return params
+
+
+def print_error(error):
+    print(error)
 
 
 def get_roots(coef_1, coef_2, coef_3):
@@ -26,4 +30,5 @@ def get_roots(coef_1, coef_2, coef_3):
 
 if __name__ == '__main__':
     params = get_params()
-    print(get_roots(*params))   
+    if params:
+        print(get_roots(*params))
